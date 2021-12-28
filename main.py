@@ -248,7 +248,6 @@ def ubacivanjeBrojevaUBubanj():
                         win = 10
                         brojac = 0
                 case 28:
-
                     print(broj, " x8")
                     if brojac == 6:
                         win = 8
