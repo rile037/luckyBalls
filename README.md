@@ -14,5 +14,5 @@ ___
 - If user got all 6 of his numbers drawn, he win. Winning depends on bet and win multiplication. 
 - If his last 6th number got drawn at x4 (31/35 drawn) and his bet is 50$, he wins 200$.
 ___
-**INSTALLATION**
-- In order to run the game, you will need to run main.py from **cmd**. 
+**HOW TO PLAY?**
+- In order to run the game, you will need to run main.exe from **dist** folder. 
