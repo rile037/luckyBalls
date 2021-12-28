@@ -34,6 +34,7 @@ def biranjeBrojeva():
     return brojevi
 
 
+
 listaIzabranihBrojeva = biranjeBrojeva()
 
 print(">>> Izvlacenje pocinje!")
