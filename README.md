@@ -13,6 +13,4 @@ ___
 - If his last 6th number got drawn at x4 (31/35 drawn) and his bet is 50$, he wins 200$.
 ___
 ## INSTRUCTIONS
-- In order to run the game, you will need to run main.py from **cmd**.
-
-
+- In order to run the game, you will need to run main.py from **cmd**. 
