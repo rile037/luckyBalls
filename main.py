@@ -4,31 +4,10 @@
 import random
 import threading
 import time
-import tkinter
-
-root = tkinter.Tk()
-root.title("Lucky Balls v1.0 ")
-root.geometry("500x500")
-
-root.mainloop()
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-
-ulog = 0
 
 
 def biranjeBrojeva():
-    global ulog
-    ulog = input("Unesite vas ulog (iznos upisujete u dinarima, npr. 200): ")
+    ulog = input("Unesite vas ulog: ")
     print("Vas ulog: " + ulog + " rsd")
     print("Brojeve unosite sa razmakom (npr. 1 23 40 37 12 5)")
     izabraniBrojevi = input("Unesite 6 brojeva [1 - 48]: ")
@@ -37,7 +16,6 @@ def biranjeBrojeva():
     for i in range(6):
         print("- " + brojevi[i])
     return brojevi
-
 
 
 listaIzabranihBrojeva = biranjeBrojeva()
@@ -301,4 +279,6 @@ def ubacivanjeBrojevaUBubanj():
     return broj
 
 
+t1 = threading.Thread(target=biranjeBrojeva, args="").start()
 ubacivanjeBrojevaUBubanj()
+
