@@ -4,8 +4,13 @@
 import random
 import threading
 import time
+import tkinter
 
+root = tkinter.Tk()
+root.title("Lucky Balls v1.0")
+root.geometry("500x500")
 
+root.mainloop()
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
