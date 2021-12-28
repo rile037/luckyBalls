@@ -302,5 +302,3 @@ def ubacivanjeBrojevaUBubanj():
 
 
 ubacivanjeBrojevaUBubanj()
-
-## KOD PUTA 1 SE JAVLJA BUG ili KOD DOBITKA
