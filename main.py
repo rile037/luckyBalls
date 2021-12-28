@@ -7,7 +7,7 @@ import time
 import tkinter
 
 root = tkinter.Tk()
-root.title("Lucky Balls v1.0")
+root.title("Lucky Balls v1.0 ")
 root.geometry("500x500")
 
 root.mainloop()
