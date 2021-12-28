@@ -1,34 +1,33 @@
-## Lucky Six v.0.1.
+## Lucky Balls v.1.0.
 ## By rile037
 
 import random
 import threading
 import time
 
-
-def biranjeBrojeva():
-    ulog = input("Unesite vas ulog: ")
-    print("Vas ulog: " + ulog + " rsd")
-    print("Brojeve unosite sa razmakom (npr. 1 23 40 37 12 5)")
-    izabraniBrojevi = input("Unesite 6 brojeva [1 - 48]: ")
-    print("\nVasi brojevi: \n")
-    brojevi = izabraniBrojevi.split(" ")
+def numberPick():
+    bet = input("- Enter your bet, please [currency $]: ")
+    print("Your bet is: " + bet + " $")
+    print("\n")
+    print("INFO: Enter the numbers with white space (e.g. 1 23 40 37 12 5)")
+    pickedNumbers = input("Enter six numbers, please [RANGE: 1 - 48]: ")
+    print("\nINFO: 'xNumber' represents multiplication with your bet. \n- e.g. x50[win] * 50$[bet] = 2500$[reward]")
+    print("\nYour numbers: \n")
+    numbers = pickedNumbers.split(" ")
     for i in range(6):
-        print("- " + brojevi[i])
-    return brojevi
+        print("- " + numbers[i])
+    return numbers
+
+listOfChosenNumbers = numberPick()
+numbers = []
+t = 2.4
 
 
-listaIzabranihBrojeva = biranjeBrojeva()
+print(">>> Game begins!")
 
-print(">>> Izvlacenje pocinje!")
-##35
-brojevi = []
-t = 1
-
-
-def izaberiBroj():
-    broj = random.randint(1, 48)
-    return broj
+def pickNumber():
+    number = random.randint(1, 48)
+    return number
 
 
 def countdown(t):
@@ -36,9 +35,6 @@ def countdown(t):
     Countdown Timer
     """
     while t:
-        # Divmod takes only two arguments so
-        # you'll need to do this for each time
-        # unit you need to add
         mins, secs = divmod(t, 60)
         hours, mins = divmod(mins, 60)
         days, hours = divmod(hours, 24)
@@ -47,238 +43,238 @@ def countdown(t):
         time.sleep(1)
         t -= 1
 
-    izaberiBroj()
+    pickNumber()
 
 
 win = 0
-brojac = 0
+counter = 0
 
 
-def ubacivanjeBrojevaUBubanj():
-    global brojac
+def choosingRandomNumbers():
+    global counter
     global win
-    global ulog
-    broj = izaberiBroj()
-    if len(brojevi) == 35:
-        print(">>> Cestitamo pobednicima! ")
-        print("\nIzvuceni brojevi: \n" + str(brojevi) + "\n")
+    global bet
+    number = pickNumber()
+    if len(numbers) == 35:
+        print(">>> Winners, congratulations! ")
+        print("\nDrawn numbers: \n" + str(numbers) + "\n")
         if win > 0:
-            print(">>> WIN !!!! Cestitamo !!!! WIN <<<")
-            print("Dobitak: x" + str(win))
-            print("Ulog: " + str(ulog))
-            dobitak = win * int(ulog)
-            print("- Vas dobitak: " + str(dobitak) + " rsd")
+            print(">>> WIN !!!! CONGRATULATION !!!! WIN <<<")
+            print("Reward: x" + str(win))
+            print("Bet: " + str(bet))
+            reward = win * int(bet)
+            print("- Your reward is: " + str(reward) + " $")
             print("\n")
             win = 0
         else:
-            print("- Pogodili ste " + str(brojac) + " od ukupno 35 izvucenih brojeva. Vise srece drugi put!\n")
+            print("- You hit " + str(counter) + " out of 35 drawn numbers. Better luck next time!\n")
         x = 3
 
-        for x in range(0, 3):
+        for x in range(0, 15):
             countdown(1)
-            print("- Novo kolo pocinje za ", 3 - x)
+            print("- New game starts in ... ", 15 - x)
         print("\n")
-        print("- Novo kolo pocinje!")
+        print("- New game is about to begin! Get ready!")
         countdown(3)
-        brojac = 0
-        brojevi.clear()
-        ubacivanjeBrojevaUBubanj()
+        counter = 0
+        numbers.clear()
+        choosingRandomNumbers()
 
     else:
-        if broj not in brojevi:
+        if number not in numbers:
             countdown(int(t))
             print("\n")
-            brojevi.append(broj)
-            duzina = len(brojevi)
-            if str(broj) in listaIzabranihBrojeva:
-                brojac += 1
-                print("- Broj pogodjenih brojeva: " + str(brojac))
+            numbers.append(number)
+            lenght = len(numbers)
+            if str(number) in listOfChosenNumbers:
+                counter += 1
+                print("- Number of drawn numbers you got: " + str(counter))
 
-            match duzina:
+            match lenght:
                 case 1:
-                    print("Bubanj: " + str(broj))
-                    if brojac == 6:
+                    print(str(number))
+                    if counter == 6:
                         win = 250000
-                        brojac = 0
+                        counter = 0
                 case 2:
-                    print("Bubanj: " + str(broj))
-                    if brojac == 6:
+                    print(str(number))
+                    if counter == 6:
                         win = 200000
-                        brojac = 0
+                        counter = 0
                 case 3:
-                    print("Bubanj: " + str(broj))
-                    if brojac == 6:
+                    print(str(number))
+                    if counter == 6:
                         win = 150000
-                        brojac = 0
+                        counter = 0
                 case 4:
-                    print("Bubanj: " + str(broj))
-                    if brojac == 6:
+                    print(str(number))
+                    if counter == 6:
                         win = 100000
-                        brojac = 0
+                        counter = 0
                 case 5:
-                    print("Bubanj: " + str(broj))
-                    if brojac == 6:
+                    print(str(number))
+                    if counter == 6:
                         win = 50000
-                        brojac = 0
+                        counter = 0
                 case 6:
-                    print(broj, " x25000")
-                    if brojac == 6:
+                    print(number, " x25000")
+                    if counter == 6:
                         win = 25000
-                        brojac = 0
+                        counter = 0
                 case 7:
-                    print(broj, " x15000")
-                    if brojac == 6:
+                    print(number, " x15000")
+                    if counter == 6:
                         win = 15000
-                        brojac = 0
+                        counter = 0
                 case 8:
-                    print(broj, " x7500")
-                    if brojac == 6:
+                    print(number, " x7500")
+                    if counter == 6:
                         win = 7500
-                        brojac = 0
+                        counter = 0
                 case 9:
-                    print(broj, " x3000")
-                    if brojac == 6:
+                    print(number, " x3000")
+                    if counter == 6:
                         win = 3000
-                        brojac = 0
+                        counter = 0
                 case 10:
-                    print(broj, " x1250")
-                    if brojac == 6:
+                    print(number, " x1250")
+                    if counter == 6:
                         win = 1250
-                        brojac = 0
+                        counter = 0
                 case 11:
 
-                    print(broj, " x700")
-                    if brojac == 6:
+                    print(number, " x700")
+                    if counter == 6:
                         win = 700
-                        brojac = 0
+                        counter = 0
                 case 12:
-                    print(broj, " x350")
-                    if brojac == 6:
+                    print(number, " x350")
+                    if counter == 6:
                         win = 350
-                        brojac = 0
+                        counter = 0
                 case 13:
-                    print(broj, " x250")
-                    if brojac == 6:
+                    print(number, " x250")
+                    if counter == 6:
                         win = 250
-                        brojac = 0
+                        counter = 0
                 case 14:
-                    print(broj, " x175")
-                    if brojac == 6:
+                    print(number, " x175")
+                    if counter == 6:
                         win = 175
-                        brojac = 0
+                        counter = 0
                 case 15:
-                    print(broj, " x125")
-                    if brojac == 6:
+                    print(number, " x125")
+                    if counter == 6:
                         win = 125
-                        brojac = 0
+                        counter = 0
                 case 16:
-                    print(broj, " x100")
-                    if brojac == 6:
+                    print(number, " x100")
+                    if counter == 6:
                         win = 100
-                        brojac = 0
+                        counter = 0
                 case 17:
-                    print(broj, " x90")
-                    if brojac == 6:
+                    print(number, " x90")
+                    if counter == 6:
                         win = 90
-                        brojac = 0
+                        counter = 0
                 case 18:
-                    print(broj, " x80")
-                    if brojac == 6:
+                    print(number, " x80")
+                    if counter == 6:
                         win = 80
-                        brojac = 0
+                        counter = 0
                 case 19:
-                    print(broj, " x70")
-                    if brojac == 6:
+                    print(number, " x70")
+                    if counter == 6:
                         win = 70
-                        brojac = 0
+                        counter = 0
                 case 20:
-                    print(broj, " x60")
-                    if brojac == 6:
+                    print(number, " x60")
+                    if counter == 6:
                         win = 60
-                        brojac = 0
+                        counter = 0
                 case 21:
-                    print(broj, " x50")
-                    if brojac == 6:
+                    print(number, " x50")
+                    if counter == 6:
                         win = 50
-                        brojac = 0
+                        counter = 0
                 case 22:
-                    print(broj, " x35")
-                    if brojac == 6:
+                    print(number, " x35")
+                    if counter == 6:
                         win = 35
-                        brojac = 0
+                        counter = 0
                 case 23:
-                    print(broj, " x25")
-                    if brojac == 6:
+                    print(number, " x25")
+                    if counter == 6:
                         win = 25
-                        brojac = 0
+                        counter = 0
                 case 24:
-                    print(broj, " x20")
-                    if brojac == 6:
+                    print(number, " x20")
+                    if counter == 6:
                         win = 20
-                        brojac = 0
+                        counter = 0
                 case 25:
-                    print(broj, " x15")
-                    if brojac == 6:
+                    print(number, " x15")
+                    if counter == 6:
                         win = 15
-                        brojac = 0
+                        counter = 0
                 case 26:
-                    print(broj, " x12")
-                    if brojac == 6:
+                    print(number, " x12")
+                    if counter == 6:
                         win = 12
-                        brojac = 0
+                        counter = 0
                 case 27:
-                    print(broj, " x10")
-                    if brojac == 6:
+                    print(number, " x10")
+                    if counter == 6:
                         win = 10
-                        brojac = 0
+                        counter = 0
                 case 28:
-                    print(broj, " x8")
-                    if brojac == 6:
+                    print(number, " x8")
+                    if counter == 6:
                         win = 8
-                        brojac = 0
+                        counter = 0
                 case 29:
-                    print(broj, " x7")
-                    if brojac == 6:
+                    print(number, " x7")
+                    if counter == 6:
                         win = 7
-                        brojac = 0
+                        counter = 0
                 case 30:
-                    print(broj, " x6")
-                    if brojac == 6:
+                    print(number, " x6")
+                    if counter == 6:
                         win = 6
-                        brojac = 0
+                        counter = 0
                 case 31:
-                    print(broj, " x5")
-                    if brojac == 6:
+                    print(number, " x5")
+                    if counter == 6:
                         win = 5
-                        brojac = 0
+                        counter = 0
                 case 32:
-                    print(broj, " x4")
-                    if brojac == 6:
+                    print(number, " x4")
+                    if counter == 6:
                         win = 4
-                        brojac = 0
+                        counter = 0
                 case 33:
-                    print(broj, " x3")
-                    if brojac == 6:
+                    print(number, " x3")
+                    if counter == 6:
                         win = 3
-                        brojac = 0
+                        counter = 0
                 case 34:
-                    print(broj, " x2")
-                    if brojac == 6:
+                    print(number, " x2")
+                    if counter == 6:
                         win = 2
-                        brojac = 0
+                        counter = 0
                 case 35:
-                    print(broj, " x1")
-                    if brojac == 6:
+                    print(number, " x1")
+                    if counter == 6:
                         win = 1
-                        brojac = 0
+                        counter = 0
 
 
         else:
-            izaberiBroj()
-        threading.Timer(0.1, ubacivanjeBrojevaUBubanj).start()
-    return broj
+            pickNumber()
+        threading.Timer(0.1, choosingRandomNumbers).start()
+    return number
 
 
-t1 = threading.Thread(target=biranjeBrojeva, args="").start()
-ubacivanjeBrojevaUBubanj()
+t1 = threading.Thread(target=numberPick, args="").start()
+choosingRandomNumbers()
 
