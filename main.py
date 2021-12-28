@@ -39,7 +39,6 @@ def countdown(t):
         hours, mins = divmod(mins, 60)
         days, hours = divmod(hours, 24)
         timer = '{:02d}:{:02d}:{:02d}:{:02d}'.format(days, hours, mins, secs)
-        print(timer, end="\r")
         time.sleep(1)
         t -= 1
 
