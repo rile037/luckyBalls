@@ -1,4 +1,4 @@
-## Lucky Six v.0.1.
+## Lucky Six v.1.0
 ## By rile037
 
 import random
