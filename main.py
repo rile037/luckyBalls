@@ -4,22 +4,31 @@
 import random
 import threading
 import time
+bet = input("- Enter your bet, please [currency $]: ")
 
-def numberPick():
-    bet = input("- Enter your bet, please [currency $]: ")
-    print("Your bet is: " + bet + " $")
-    print("\n")
-    print("INFO: Enter the numbers with white space (e.g. 1 23 40 37 12 5)")
-    pickedNumbers = input("Enter six numbers, please [RANGE: 1 - 48]: ")
-    print("\nINFO: 'xNumber' represents multiplication with your bet. \n- e.g. x50[win] * 50$[bet] = 2500$[reward]")
-    print("\nYour numbers: \n")
-    numbers = pickedNumbers.split(" ")
-    for i in range(6):
-        print("- " + numbers[i])
-    return numbers
+print("\n")
+print("INFO: Enter the numbers with white space (e.g. 1 23 40 37 12 5)")
+pickedNumbers = input("Enter six numbers, please [RANGE: 1 - 48]: ")
+print("\nINFO: 'xNumber' represents multiplication with your bet. \n- e.g. x50[win] * 50$[bet] = 2500$[reward]")
+print("\nYour numbers: \n")
+numbers = pickedNumbers.split(" ")
+for i in range(6):
+    print("- " + numbers[i])
 
-listOfChosenNumbers = numberPick()
-numbers = []
+# def numberPick():
+#
+#     print("Your bet is: " + bet + " $")
+#     print("\n")
+#     print("INFO: Enter the numbers with white space (e.g. 1 23 40 37 12 5)")
+#     pickedNumbers = input("Enter six numbers, please [RANGE: 1 - 48]: ")
+#     print("\nINFO: 'xNumber' represents multiplication with your bet. \n- e.g. x50[win] * 50$[bet] = 2500$[reward]")
+#     print("\nYour numbers: \n")
+#     numbers = pickedNumbers.split(" ")
+#     for i in range(6):
+#         print("- " + numbers[i])
+#     return numbers
+
+listOfChosenNumbers = numbers
 t = 2.4
 
 
@@ -274,6 +283,6 @@ def choosingRandomNumbers():
     return number
 
 
-t1 = threading.Thread(target=numberPick, args="").start()
+# t1 = threading.Thread(target=numberPick, args="").start()
 choosingRandomNumbers()
 
