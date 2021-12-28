@@ -1,6 +1,8 @@
-#LUCKY BALLS
+**LUCKY BALLS**
 
 >- Lucky Balls is gambling game where user try to guess 6 numbers from 1 to 48 that computer has picked. 
+<img src="https://www.nicepng.com/png/detail/417-4177877_nsoft-lucky-six.png" alt="drawing" width="400"/>
+
 ___
 **INSTRUCTIONS**
 - User input his bet, that should be in $ currency. 
