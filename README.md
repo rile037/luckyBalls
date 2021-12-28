@@ -16,3 +16,5 @@ ___
 ___
 **HOW TO PLAY?**
 - In order to run the game, you will need to run main.exe from **dist** folder. 
+
+<img src="https://ibb.co/pZyySDY" alt="game" width="500"/>
