@@ -1,6 +1,6 @@
-## Lucky Balls v.1.0.
+## Lucky Balls
 ## By rile037
-
+## v.1.0.
 import random
 import threading
 import time
